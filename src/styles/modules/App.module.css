@@ -1,0 +1,11 @@
+/*generic styles for all app*/
+
+.theme-dark {
+    background-color: var(--theme-dark);
+    color: var(--color-dark);
+}
+
+.theme-light {
+    background-color: var(--theme-light);
+    color: var(--color-light);
+}
