@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import { changeUserName } from '../store/slices/userName.slice';
 import { useDispatch } from 'react-redux';
 
@@ -10,9 +10,16 @@ const GetUserNameForm = () => {
     };
 
     const regIsValidUserName = /^[a-z0-9_-]{3,16}$/;
+    const regIsName = /^[a-z]{3,16}$/;
 
     const isValidUserName = (name: string) => {
         return regIsValidUserName.test(name);
+    };
+
+    const formatName = (name: string) => {
+        if (regIsName.test(name))
+            return name.slice(0, 1).toUpperCase() + name.slice(1, name.length);
+        return name;
     };
 
     const submit = (e: FormEvent): void => {
@@ -26,8 +33,8 @@ const GetUserNameForm = () => {
         ) {
             return;
         }
-
-        sendName(name);
+        const fName = formatName(name);
+        sendName(fName);
         setName('');
         return;
     };
@@ -40,6 +47,7 @@ const GetUserNameForm = () => {
 
     const [name, setName] = useState<string>('');
     const [messageError, setMessageError] = useState<string>('');
+    const inputRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
         if (name.length === 0) return;
@@ -54,6 +62,10 @@ const GetUserNameForm = () => {
         setMessageError('');
     }, [name]);
 
+    useEffect(() => {
+        inputRef.current?.focus();
+    }, [inputRef.current?.focus]);
+
     return (
         <form onSubmit={(e) => submit(e)}>
             <input
@@ -61,6 +73,7 @@ const GetUserNameForm = () => {
                 placeholder="Write your username here!"
                 value={name}
                 onChange={handleChangeOnNameInput}
+                ref={inputRef}
             />
             <p>{messageError}</p>
         </form>

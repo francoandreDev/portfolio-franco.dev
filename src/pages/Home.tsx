@@ -1,5 +1,11 @@
+import {Themes}from "../components/exports";
+import {Presentation} from "./exports";
+
 const Home = () => {
-    return <div></div>;
+    return <main>
+        <Presentation/>
+        <Themes/>
+    </main>;
 };
 
 export default Home;
