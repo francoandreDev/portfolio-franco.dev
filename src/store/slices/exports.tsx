@@ -1,4 +1,5 @@
-import themesReducer from "./themes.slice";
-import userNameReducer from "./userName.slice";
+import sectionReducer from './section.slice';
+import themesReducer from './themes.slice';
+import userNameReducer from './userName.slice';
 
-export {themesReducer, userNameReducer}
+export { sectionReducer, themesReducer, userNameReducer };

@@ -1,6 +1,8 @@
-import LinkSmooth from './LinkSmooth';
-import Modal from './Modal';
-import NavBar from './NavBar';
-import Themes from './Themes';
+import Break from './Break';
+import Footer from './footer/Footer';
+import LinkSmooth from './navBar/LinkSmooth';
+import NavBar from './navBar/NavBar';
+import Presentation from './presentation/Presentation';
+import Section from './section/Section';
 
-export { LinkSmooth, Modal, NavBar, Themes };
+export { Break, Footer, LinkSmooth, NavBar, Presentation, Section };

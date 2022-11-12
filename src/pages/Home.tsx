@@ -1,11 +1,15 @@
-import {Themes}from "../components/exports";
-import {Presentation} from "./exports";
+import { Footer, NavBar, Presentation, Section } from '../components/exports';
+import { homeStyles } from '../styles/modules/exports';
 
 const Home = () => {
-    return <main>
-        <Presentation/>
-        <Themes/>
-    </main>;
+    return (
+        <main className={`${homeStyles['grid-main']}`}>
+            <NavBar />
+            <Presentation />
+            <Section />
+            <Footer />
+        </main>
+    );
 };
 
 export default Home;

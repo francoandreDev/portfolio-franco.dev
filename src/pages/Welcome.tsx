@@ -5,8 +5,16 @@ const Welcome = () => {
     const username = useSelector((state: RootState) => state.userName.value);
 
     return (
-        <div>
-            <h2>Welcome {username}</h2>
+        <div
+            style={{
+                position: 'relative',
+                zIndex: 1,
+                backgroundColor: 'transparent'
+            }}
+        >
+            <h2 style={{ backgroundColor: 'transparent' }}>
+                Welcome {username}
+            </h2>
         </div>
     );
 };

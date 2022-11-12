@@ -67,15 +67,31 @@ const GetUserNameForm = () => {
     }, [inputRef.current?.focus]);
 
     return (
-        <form onSubmit={(e) => submit(e)}>
+        <form
+            onSubmit={(e) => submit(e)}
+            style={{
+                position: 'relative',
+                zIndex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}
+        >
             <input
                 type="text"
                 placeholder="Write your username here!"
                 value={name}
                 onChange={handleChangeOnNameInput}
                 ref={inputRef}
+                style={{
+                    backgroundColor: 'transparent',
+                    boxShadow: '0 0 5px 1px gray',
+                    color: `${'dark' === 'dark' ? 'white' : 'black'}`,
+                    textAlign: 'center'
+                }}
             />
-            <p>{messageError}</p>
+            <p style={{ color: '#ff004c', backgroundColor: "transparent" }}>{messageError}</p>
         </form>
     );
 };

@@ -1,9 +1,7 @@
-import AboutMe from './AboutMe';
-import ContactMe from './ContactMe';
+import Breaks from './Breaks';
 import GetUserNameForm from './GetUserNameForm';
 import Home from './Home';
-import Presentation from './Presentation';
-import Technologies from './Technologies';
+import Modal from './Modal';
 import Welcome from './Welcome';
 
-export { AboutMe, ContactMe, GetUserNameForm, Home, Presentation, Technologies, Welcome };
+export { Breaks, GetUserNameForm, Home, Modal, Welcome };

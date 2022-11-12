@@ -1,8 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { themesReducer, userNameReducer } from './slices/exports';
+import {
+    sectionReducer,
+    themesReducer,
+    userNameReducer
+} from './slices/exports';
 
 export const store = configureStore({
     reducer: {
+        section: sectionReducer,
         themes: themesReducer,
         userName: userNameReducer
     }

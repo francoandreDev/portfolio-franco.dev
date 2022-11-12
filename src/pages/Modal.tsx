@@ -10,11 +10,13 @@ const Modal = ({ classes, content }: ModalTypes) => {
         <div
             className={`${classes} ${modalStyles.center}`}
             style={{
-                position: 'absolute',
+                position: 'relative',
                 top: 0,
                 left: 0,
+                zIndex: 1,
                 width: '100vw',
-                height: '100vh'
+                height: '100vh',
+                overflow: 'hidden'
             }}
         >
             {content}

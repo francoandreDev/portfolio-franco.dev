@@ -1,0 +1,15 @@
+.grid-main {
+    display: grid;
+    grid-template-areas:
+        'navbar navbar'
+        'presentation section'
+        'presentation section'
+        'presentation section'
+        'presentation section'
+        'presentation section'
+        'footer footer';
+    gap: 10px;
+    margin: 0 10px;
+    width: 100%;
+    height: 100%;
+}

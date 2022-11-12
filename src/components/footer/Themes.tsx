@@ -1,6 +1,6 @@
-import { changeTheme } from '../store/slices/themes.slice';
+import { RootState } from '../../store';
+import { changeTheme } from '../../store/slices/themes.slice';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store';
 
 const Themes = () => {
     const dispatch = useDispatch();
@@ -19,11 +19,7 @@ const Themes = () => {
             onClick={() => {
                 toggleThemes();
             }}
-            style={{
-                backgroundColor: `var(--theme-${theme})`,
-                color: `var(--color-${theme})`,
-                border: `1px solid var(--color-${theme})`
-            }}
+            style={{ border: '0px solid transparent' }}
         >
             Toggle Theme
         </button>

@@ -1,8 +1,5 @@
 import GetUserNameForm from './pages/GetUserNameForm';
-import Modal from './components/Modal';
-import Welcome from './pages/Welcome';
-
-import { Home } from './pages/exports';
+import { Breaks, Home, Modal, Welcome } from './pages/exports';
 import { RootState } from './store';
 import { appStyles } from './styles/modules/exports';
 import { useSelector } from 'react-redux';
@@ -22,22 +19,24 @@ function App() {
             setIsTimePassed(true);
         }, 2000);
     }, [username]);
-    const contentWelcome = (
+    const contentModal = (
         <>
             {username.length === 0 ? (
-                <GetUserNameForm />
-            ) : isTimePassed ? (
-                <Home />
+                <>
+                    <GetUserNameForm />
+                    <Breaks show={true} />
+                </>
+            ) : !isTimePassed ? (
+                <>
+                    <Welcome />
+                    <Breaks show={false} />
+                </>
             ) : (
-                <Welcome />
+                <Home />
             )}
         </>
     );
-    return (
-        <div>
-            <Modal classes={classes} content={contentWelcome} />
-        </div>
-    );
+    return <Modal classes={classes} content={contentModal} />;
 }
 
 export default App;

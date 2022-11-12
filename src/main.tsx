@@ -1,13 +1,10 @@
-import { Provider } from 'react-redux';
 import { store } from './store';
-
-import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
-
-import './styles/normalize.css';
-import './styles/root.css';
-
+import React from 'react';
 import App from './App';
+import './styles/root.css';
+import './styles/normalize.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
