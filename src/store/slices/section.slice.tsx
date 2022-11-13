@@ -1,11 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface ISectionState {
-    value: string;
+    id: string;
+    title: string;
 }
 
 const initialState: ISectionState = {
-    value: 'aboutMe'
+    id: '#aboutMe',
+    title: 'About Me'
+};
+
+const transformIdIntoTitle = (id: string) => {
+    let newString = id.normalize().replace('#', '');
+    const newWords = newString.split(/(?=[A-Z])/);
+    newWords[0] = firstMayus(newWords[0]);
+    newString = '';
+    newWords.forEach((word) => {
+        newString = `${newString} ${word}`;
+    });
+    return newString;
+};
+
+const firstMayus = (word: string) => {
+    return word.slice(0, 1).toUpperCase() + word.slice(1);
 };
 
 export const sectionSlice = createSlice({
@@ -13,7 +30,8 @@ export const sectionSlice = createSlice({
     initialState,
     reducers: {
         changeSection: (state, action: PayloadAction<string>) => {
-            state.value = action.payload;
+            state.id = action.payload;
+            state.title = transformIdIntoTitle(action.payload);
         }
     }
 });

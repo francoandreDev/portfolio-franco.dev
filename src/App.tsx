@@ -4,6 +4,7 @@ import { RootState } from './store';
 import { appStyles } from './styles/modules/exports';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+import "./styles/utils.css";
 
 function App() {
     const theme = useSelector((state: RootState) => state.themes.value);

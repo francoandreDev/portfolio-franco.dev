@@ -14,7 +14,7 @@ const LinkSmooth = ({ classLink, id, content }: LinksType) => {
     return (
         <Link
             className={classLink}
-            to={`#${id}`}
+            to={id}
             smooth={true}
             duration={500}
             delay={5}

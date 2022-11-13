@@ -1,13 +1,12 @@
+
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import AboutMe from './AboutMe';
-import ContactMe from './ContactMe';
-import Projects from './Projects';
-import Technologies from './Technologies';
+import MySection from './MySection';
 
 const Section = () => {
     const theme = useSelector((state: RootState) => state.themes.value);
-    const section = useSelector((state: RootState) => state.section.value);
+    const sectionId = useSelector((state: RootState) => state.section.id);
+    const sectionTitle = useSelector((state: RootState) => state.section.title);
 
     return (
         <div
@@ -21,15 +20,10 @@ const Section = () => {
                 borderRight: '0 solid transparent'
             }}
         >
-            {section === 'aboutMe' ? (
-                <AboutMe />
-            ) : section === 'projects' ? (
-                <Projects />
-            ) : section === 'technologies' ? (
-                <Technologies />
-            ) : (
-                section === 'contactMe' && <ContactMe />
-            )}
+            <MySection
+                id={sectionId}
+                title={sectionTitle}
+            />
         </div>
     );
 };

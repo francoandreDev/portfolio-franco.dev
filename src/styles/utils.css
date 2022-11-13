@@ -1,0 +1,7 @@
+.theme-dark .borders {
+    border: 1px solid var(--color-dark);
+}
+
+.theme-light .borders {
+    border: 1px solid var(--color-light);
+}
