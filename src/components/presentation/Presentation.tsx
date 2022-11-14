@@ -29,8 +29,9 @@ const Presentation = () => {
                         gridArea: 'text',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-around',
+                        justifyContent: 'space-between',
                         alignItems: 'center',
+                        height: "50%"
 
                     }}
                 >

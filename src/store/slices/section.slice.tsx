@@ -6,18 +6,19 @@ export interface ISectionState {
 }
 
 const initialState: ISectionState = {
-    id: '#aboutMe',
+    id: 'aboutMe',
     title: 'About Me'
 };
 
 const transformIdIntoTitle = (id: string) => {
-    let newString = id.normalize().replace('#', '');
+    let newString = id.normalize();
     const newWords = newString.split(/(?=[A-Z])/);
     newWords[0] = firstMayus(newWords[0]);
     newString = '';
     newWords.forEach((word) => {
         newString = `${newString} ${word}`;
     });
+    newString = newString.trim();
     return newString;
 };
 
