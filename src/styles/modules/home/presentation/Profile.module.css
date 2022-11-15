@@ -1,4 +1,19 @@
-@layer container, line, images;
+/*#region variables*/
+:root {
+    /*images*/
+    --animation-values-images: 20s linear alternate infinite;
+    /*image 2*/
+    --translate-initial-image: -90% -90%;
+    --translate-middle-image: -22% -22%;
+    --translate-final-image: 0 0;
+    --translate-initial-rotate: 45deg;
+    --translate-final-rotate: 0;
+    /*image 2*/
+    /*images*/
+}
+/*#endregion*/
+
+@layer container, images;
 
 @layer container {
     .profile-container {
@@ -13,51 +28,7 @@
         -moz-border-radius: 1rem;
         -ms-border-radius: 1rem;
         -o-border-radius: 1rem;
-        /* overflow: hidden; */
-    }
-}
-
-@layer line {
-    .line-bright {
-        position: absolute;
-        background-color: rgba(255, 255, 255, 0.7);
-        color: transparent;
-        width: 200%;
-        height: 10%;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        backdrop-filter: 5px;
-        border-radius: inherit;
-        -webkit-border-radius: inherit;
-        -moz-border-radius: inherit;
-        -ms-border-radius: inherit;
-        -o-border-radius: inherit;
-        rotate: 135deg;
-        translate: -57% -40%;
-        animation: bright 20s linear alternate infinite;
-        -webkit-animation: bright 20s linear alternate infinite;
-}
-
-    @keyframes bright {
-        0% {
-            translate: -57% -40%;
-        }
-        20% {
-            translate: -57% -40%; /*animation start*/
-        }
-        31.66% {
-            translate: 25% 970%; /*animation end*/
-        }
-        68.33% {
-            translate: 25% 970%; /*animation start*/
-        }
-        80% {
-            translate: -57% -40%; /*animation end*/
-        }
-        100% {
-            translate: -57% -40%;
-        }
+        overflow: hidden;
     }
 }
 
@@ -68,6 +39,8 @@
         left: 0;
         width: 100%;
         height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
         border: none;
         border-radius: inherit;
         -webkit-border-radius: inherit;
@@ -76,16 +49,9 @@
         -o-border-radius: inherit;
     }
     #profile-image-1 {
-        animation: image-hide 20s linear alternate infinite;
-        -webkit-animation: image-hide 20s linear alternate infinite;
-    }
-    #profile-image-2 {
-        translate: -87% -87%;
-        width: 100%;
-        height: 100%;
-        rotate: 45deg;
-        animation: image-transition 20s linear alternate infinite;
-        -webkit-animation: image-transition 20s linear alternate infinite;
+        content: url('../../../../assets/profile-photo.png');
+        animation: image-hide var(--animation-values-images);
+        -webkit-animation: image-hide var(--animation-values-images);
     }
 
     @keyframes image-hide {
@@ -106,70 +72,46 @@
         }
     }
 
+    #profile-image-2 {
+        content: url('../../../../assets//profile-photo-2.png');
+        animation: image-transition var(--animation-values-images);
+        -webkit-animation: image-transition var(--animation-values-images);
+}
+
     @keyframes image-transition {
         0% {
-            translate: -87% -87%;
+            rotate: var(--translate-initial-rotate);
+            translate: var(--translate-initial-image);
         }
         20% {
             /*animation start*/
-            translate: -87% -87%;
+            translate: var(--translate-initial-image);
         }
         30% {
-            rotate: 45deg;
-            translate: -22% -10%;
+            rotate: var(--translate-initial-rotate);
+            translate: var(--translate-middle-image);
         }
         31.66% {
             /*animation end*/
-            rotate: 0deg;
-            translate: 0 0;
-        }
-        33.33% {
-            rotate: 0deg;
-            translate: 0 0;
-        }
-        66.66% {
-            rotate: 0deg;
-            translate: 0 0;
+            rotate: var(--translate-final-rotate);
+            translate: var(--translate-final-image);
         }
         68.33% {
             /*animation start*/
-            rotate: 0deg;
-            translate: 0 0;
+            rotate: var(--translate-final-rotate);
+            translate: var(--translate-final-image);
         }
         70% {
-            rotate: 45deg;
-            translate: -22% -22%;
+            rotate: var(--translate-initial-rotate);
+            translate: var(--translate-middle-image);
         }
         80% {
             /*animation end*/
-            translate: -87% -87%;
+            translate: var(--translate-initial-image);
         }
         100% {
-            translate: -87% -87%;
+            rotate: var(--translate-initial-rotate);
+            translate: var(--translate-initial-image);
         }
-    }
-}
-
-@keyframes heart {
-    0% {
-        scale: 1;
-    }
-    5% {
-        scale: 0.9;
-    }
-    7% {
-        scale: 1;
-    }
-    10% {
-        scale: 0.9;
-    }
-    15% {
-        scale: 1;
-    }
-    50% {
-        scale: 1;
-    }
-    100% {
-        scale: 1;
     }
 }
